@@ -92,7 +92,7 @@ Using the reviews array above do the following: (no function needed)
   1. Following the same format (name, rating, feedback), add a new fictitious review object to the reviews array
   2. log the whole array to the console, make sure the new review is inside of it   
 */
-reviews.push({name: "Bill", rating: 4, feedback: "Wow, amazing place."});
+reviews.push({name: "Bill", rating: 3, feedback: "Wow, amazing place."});
 console.log(reviews);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -161,11 +161,21 @@ Use the getReviewsByRating function below to do the following:
   ]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(arr, rating) {
+    let floorRating = Math.floor(rating);
+    const reviewsByRating = [];
+
+    for(let i = 0; i < arr.length; i++){
+      if(arr[i].rating >= floorRating && arr[i].rating <= floorRating + 0.9){
+        reviewsByRating.push(arr[i]);
+      }
+    }
+
+    return reviewsByRating;
   }
 
-  
+  console.log(getReviewByRating(reviews, 4));
+
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪💪   
 Use the getLongReviews function below to do the following:
   1. Receive the array that holds all the reviews
